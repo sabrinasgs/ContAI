@@ -1,0 +1,368 @@
+/* Reset e estilos globais */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #f5f5f5;
+  color: #333;
+  line-height: 1.6;
+}
+
+.App {
+  min-height: 100vh;
+}
+
+/* Header */
+.header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 2rem 0;
+  text-align: center;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.header p {
+  font-size: 1.1rem;
+  opacity: 0.9;
+}
+
+/* Layout principal */
+.main-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  display: grid;
+  gap: 2rem;
+}
+
+/* Seções */
+.formulario-section,
+.tabela-section {
+  background: white;
+  border-radius: 8px;
+  padding: 2rem;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+/* Formulário */
+.formulario-container h2 {
+  color: #333;
+  margin-bottom: 1.5rem;
+  border-bottom: 2px solid #667eea;
+  padding-bottom: 0.5rem;
+}
+
+.formulario-lancamento {
+  display: grid;
+  gap: 1rem;
+  max-width: 500px;
+}
+
+.campo {
+  display: flex;
+  flex-direction: column;
+}
+
+.campo label {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #555;
+}
+
+.campo input,
+.campo select {
+  padding: 0.75rem;
+  border: 2px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.campo input:focus,
+.campo select:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.campo input.erro {
+  border-color: #e74c3c;
+}
+
+.erro-msg {
+  color: #e74c3c;
+  font-size: 0.85rem;
+  margin-top: 0.25rem;
+}
+
+.btn-submit {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  margin-top: 1rem;
+}
+
+.btn-submit:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+.btn-submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Tabela */
+.tabela-container h2 {
+  color: #333;
+  margin-bottom: 1.5rem;
+  border-bottom: 2px solid #667eea;
+  padding-bottom: 0.5rem;
+}
+
+.mes-group {
+  margin-bottom: 2rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.mes-titulo {
+  background: #f8f9fa;
+  padding: 1rem;
+  margin: 0;
+  color: #333;
+  font-size: 1.2rem;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.tabela-wrapper {
+  overflow-x: auto;
+}
+
+.tabela-lancamentos {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.tabela-lancamentos th {
+  background: #667eea;
+  color: white;
+  padding: 1rem;
+  text-align: left;
+  font-weight: 600;
+}
+
+.tabela-lancamentos td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.tabela-lancamentos tr:hover {
+  background-color: #f8f9fa;
+}
+
+.descricao {
+  max-width: 300px;
+  word-wrap: break-word;
+}
+
+.valor.credito {
+  color: #27ae60;
+  font-weight: 600;
+}
+
+.valor.debito {
+  color: #e74c3c;
+  font-weight: 600;
+}
+
+.badge {
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.badge.credito {
+  background: #d4edda;
+  color: #155724;
+}
+
+.badge.debito {
+  background: #f8d7da;
+  color: #721c24;
+}
+
+/* Totais do mês */
+.totais-mes {
+  background: #f8f9fa;
+  padding: 1rem;
+  display: grid;
+  gap: 0.5rem;
+  border-top: 1px solid #e0e0e0;
+}
+
+.total-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem;
+  border-radius: 4px;
+}
+
+.total-item.credito {
+  background: #d4edda;
+  color: #155724;
+}
+
+.total-item.debito {
+  background: #f8d7da;
+  color: #721c24;
+}
+
+.total-item.saldo {
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin-top: 0.5rem;
+  border: 2px solid #333;
+}
+
+.total-item.saldo.positivo {
+  background: #d4edda;
+  color: #155724;
+  border-color: #27ae60;
+}
+
+.total-item.saldo.negativo {
+  background: #f8d7da;
+  color: #721c24;
+  border-color: #e74c3c;
+}
+
+.total-item .label {
+  font-weight: 600;
+}
+
+.total-item .valor {
+  font-weight: 700;
+}
+
+.total-item .quantidade {
+  font-size: 0.85rem;
+  opacity: 0.8;
+}
+
+/* Estados especiais */
+.loading {
+  text-align: center;
+  padding: 2rem;
+  color: #666;
+  font-style: italic;
+}
+
+.vazio {
+  text-align: center;
+  padding: 3rem;
+  color: #666;
+}
+
+.vazio p {
+  margin-bottom: 0.5rem;
+}
+
+/* Alertas */
+.alert {
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 4px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 500;
+}
+
+.alert-success {
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+.alert-error {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}
+
+.alert-close {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: inherit;
+  margin-left: 1rem;
+  padding: 0;
+  line-height: 1;
+}
+
+.alert-close:hover {
+  opacity: 0.7;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .main-content {
+    padding: 1rem;
+    gap: 1rem;
+  }
+  
+  .formulario-section,
+  .tabela-section {
+    padding: 1rem;
+  }
+  
+  .header h1 {
+    font-size: 2rem;
+  }
+  
+  .header p {
+    font-size: 1rem;
+  }
+  
+  .tabela-lancamentos th,
+  .tabela-lancamentos td {
+    padding: 0.5rem;
+    font-size: 0.9rem;
+  }
+  
+  .totais-mes {
+    font-size: 0.9rem;
+  }
+  
+  .total-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+  }
+}
